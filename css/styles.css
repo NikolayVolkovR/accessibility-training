@@ -1,3 +1,8 @@
+input:focus, select:focus, textarea:focus, button:focus, a:focus {
+  box-shadow: 0 0 2px 1.5px #fff,
+              0 0 3px 3px #000!important;
+}
+
 .hero-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../img/accessibility-hero-banner.jpg") no-repeat center center fixed;
