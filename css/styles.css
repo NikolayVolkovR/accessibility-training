@@ -158,6 +158,45 @@ li {
   min-height: 70vh;
 }
 
+
+
+
+.hero.is-info, .button.is-info {
+  background-color: #176ea7;
+}
+
+.footer ul a {
+  color: #2d68c7;
+}
+.hero.has-background-grey-light .subtitle.is-5 {
+  color: #474747;
+}
+
+.tabs.is-boxed.is-centered.main-menu .is-active a{
+  color: #1772ae!important;
+}
+.tag.is-danger {
+  background-color: #d7284c;
+}
+.help.is-danger {
+  color: #d7284c;
+}
+.tag.is-success  {
+  background-color: #0a7931;
+}
+.help.is-success {
+  color: #0a7931;
+}
+.tag.is-primary {
+  background-color: #027262;
+}
+.has-text-grey-light {
+  color: #6e6e6e!important;
+}
+
+
+
+
 .blockquote {
   background-color: #f5f5f5;
   border-left: 5px solid #dbdbdb;
