@@ -204,8 +204,20 @@ li {
 .new-post {
   width: 100%;
 }
-
-
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+}
+.visually-hidden:focus {
+  height: auto;
+  width: auto;
+  clip: auto;
+}
 
 .tag.is-danger {
   background-color: #d7284c;
