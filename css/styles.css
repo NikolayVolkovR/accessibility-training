@@ -175,6 +175,37 @@ li {
 .tabs.is-boxed.is-centered.main-menu .is-active a{
   color: #1772ae!important;
 }
+
+.tabs.is-boxed.is-centered.main-menu button {
+  color: #fff;
+  background-color: #176ea7;
+  font-size: 1em;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  padding: .5em 1em;
+  cursor: pointer;
+}
+.tabs.is-boxed.is-centered.main-menu .is-active button{
+  background-color: #fff;
+  color: #1772ae!important;
+}
+.tabs.is-boxed.is-centered.main-menu button:hover {
+  background-color: rgba(10,10,10,.1);
+}
+.card-footer .card-footer-item {
+  border: none;
+  background-color: #fff;
+  padding: 0.75rem;
+  color: #3273dc;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+
+
+
+
 .tag.is-danger {
   background-color: #d7284c;
 }
