@@ -218,6 +218,14 @@ li {
   width: auto;
   clip: auto;
 }
+.skip-main-content {
+  background-color: red;
+  color: #fff;
+  padding: 5px;
+  z-index: 9999;
+}
+
+
 
 .tag.is-danger {
   background-color: #d7284c;
