@@ -78,14 +78,15 @@
             Would you like to get the latest news?
           </div>
           <div class="box">
-            <div class="field is-grouped">
+            <form role="form" class="field is-grouped">
               <p class="control is-expanded">
-                <input class="input">
+                <label for="notify-email" class="visually-hidden">Email</label>
+                <input type="email" name="notify-email" id="notify-email" placeholder="Email" class="input">
               </p>
               <p class="control">
                 <button type="button" class="button is-info">Notify Me</button>
               </p>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -878,16 +879,16 @@
 
           <form role="form" class="column is-half is-offset-one-quarter box">
             <div class="field">
-              <label class="label visually-hidden">Name</label>
+              <label for="contact-name" class="label">Name</label>
               <div class="control">
-                <input class="input" type="text" placeholder="Name">
+                <input class="input" type="text" name="contact-name" id="contact-name" placeholder="Name">
               </div>
             </div>
 
             <div class="field">
-              <label class="label visually-hidden">Username</label>
+              <label for="contact-username" class="label">Username</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="text" placeholder="Username">
+                <input class="input is-success" type="text" placeholder="Username" name="contact-username" id="contact-username">
                 <span class="icon is-small is-left">
                   <i class="fas fa-user"></i>
                 </span>
@@ -899,9 +900,9 @@
             </div>
 
             <div class="field">
-              <label class="label visually-hidden">Email</label>
+              <label for="contact-email" class="label">Email</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+                <input class="input is-danger" type="email" placeholder="Email input" name="contact-email" id="contact-email" value="hello@">
                 <span class="icon is-small is-left">
                   <i class="fas fa-envelope"></i>
                 </span>
@@ -913,10 +914,10 @@
             </div>
 
             <div class="field">
-              <label class="label">Subject</label>
+              <label for="contact-subject" class="label">Subject</label>
               <div class="control">
                 <div class="select">
-                  <select>
+                  <select name="contact-subject" id="contact-subject">
                     <option>Select dropdown</option>
                     <option>With options</option>
                   </select>
@@ -925,16 +926,16 @@
             </div>
 
             <div class="field">
-              <label class="label">Message</label>
+              <label for="contact-message" class="label">Message</label>
               <div class="control">
-                <textarea class="textarea" placeholder="Textarea"></textarea>
+                <textarea name="contact-message" id="contact-message" class="textarea" placeholder="Textarea"></textarea>
               </div>
             </div>
 
             <div class="field">
               <div class="control">
-                <label class="checkbox">
-                  <input type="checkbox">
+                <label for="contact-agree" class="checkbox">
+                  <input name="contact-agree" id="contact-agree" type="checkbox">
                   I agree to the <a>terms and conditions</a><span class="visually-hidden">Will open in a new window</span>
                 </label>
               </div>
@@ -942,12 +943,12 @@
 
             <div class="field">
               <div class="control">
-                <label class="radio">
-                  <input type="radio" name="question">
+                <label for="question-yes" class="radio">
+                  <input type="radio" name="question" id="question-yes">
                   Yes
                 </label>
-                <label class="radio">
-                  <input type="radio" name="question">
+                <label for="question-no" class="radio">
+                  <input type="radio" name="question" id="question-no">
                   No
                 </label>
               </div>
