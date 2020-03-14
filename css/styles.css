@@ -272,7 +272,52 @@ a:hover {
   display: none;
 }
 
+.breadcrumbs {
+  padding: 0.8em 1em;
+  border: 1px solid hsl(0, 0%, 90%);
+  border-radius: 4px;
+  background: hsl(300, 14%, 97%);
+  margin: 30px;
+}
 
+.breadcrumbs ol {
+  display: flex;
+}
+
+.breadcrumbs li {
+  margin: 0 .15em;
+  padding: 0;
+}
+
+.breadcrumbs a {
+  color: #034575;
+  text-decoration: none;
+  border-bottom: 1px solid #707070;
+  padding: 0 1px 0;
+  margin: 0 -1px 0;
+}
+
+.breadcrumbs li:last-child a {
+  font-weight: bold;
+  color: black;
+  border-bottom: 0;
+
+}
+
+.breadcrumbs a:hover {
+  background: rgba(75%, 75%, 75%, .25);
+  border-bottom-width: 3px;
+  margin-bottom: -2px;
+}
+
+.breadcrumbs li:not(:first-child)::before {
+  display: inline-block;
+  margin: 0 .5em;
+  transform: rotate(15deg);
+  border-right: .1em solid currentColor;
+  height: .8em;
+  content: '';
+}
 
 
 
