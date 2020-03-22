@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <header role="banner" class="hero hero-bg is-fullheight">
+  <header class="hero hero-bg is-fullheight">
     <div class="hero-head">
       <div class="navbar">
         <div class="container">
@@ -81,7 +81,7 @@
               </div>
             </div>
             <a class="navbar-item logo-link" tabindex="0">
-              <img src="https://www.epam.com/content/dam/epam/global/logo_white-blue.svg">
+              <img src="https://www.epam.com/content/dam/epam/global/logo_white-blue.svg" alt="EPAM home page">
             </a>
             <span class="navbar-burger burger" data-target="navbarMenu" tabindex="0">
               <span></span>
@@ -90,7 +90,7 @@
             </span>
           </div>
 
-          <nav role="navigation" id="navbarMenu" class="navbar-menu">
+          <nav id="navbarMenu" class="navbar-menu" aria-label="Main menu">
             <div class="navbar-end">
               <span class="navbar-item">
                 <a class="button is-white is-outlined" tabindex="0">
@@ -138,7 +138,7 @@
             Would you like to get the latest news?
           </div>
           <div class="box">
-            <form role="form" class="field is-grouped">
+            <form role="form" class="field is-grouped" aria-label="Subscribe news">
               <p class="control is-expanded">
                 <label for="notify-email" class="visually-hidden">Email</label>
                 <input type="email" name="notify-email" id="notify-email" placeholder="Email" class="input">
@@ -153,8 +153,8 @@
     </div>
   </header>
 
-  <main role="main" id="mainContent">
-      <nav class="breadcrumbs">
+  <main id="mainContent" aria-labelledby="skip-to-h1">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
         <ol>
           <li><a href="#">EPAM</a></li>
           <li><a href="#">EPAM Approaches</a></li>
@@ -637,7 +637,7 @@
                           <span class="tag is-default">v0.7.2</span>
                         </a>
                         <span class="tag is-default">Desktop</span>
-                        <span class="tag is-danger">WIP</span>
+                        <span class="tag is-danger" style="background-color: #c12b49;">WIP</span>
                       </span>
                     </p>
                   </div>
@@ -796,11 +796,11 @@
               <button type="button" class="button is-primary is-block is-alt is-large new-post">New Post</button>
               <div class="menu">
                 <ul class="menu-list forum-list">
-                  <li><span class="tag is-primary is-medium">Dashboard</span></li>
+                  <li><span class="tag is-primary is-medium" style="background-color: #00806d;">Dashboard</span></li>
                   <li><span class="tag is-link is-medium">Customers</span></li>
-                  <li><span class="tag is-light is-danger is-medium">Authentication</span></li>
+                  <li><span class="tag is-light is-danger is-medium" style="background-color: #c12b49">Authentication</span></li>
                   <li><span class="tag is-dark is-medium">Payments</span></li>
-                  <li><span class="tag is-success is-medium">Transfers</span></li>
+                  <li><span class="tag is-success is-medium" style="background-color: #17853e;">Transfers</span></li>
                   <li><span class="tag is-warning is-medium">Balance</span></li>
                   <li><span class="tag is-medium ">Question</span></li>
                 </ul>
@@ -813,7 +813,7 @@
                   <div class="media">
                     <div class="media-left">
                       <p class="image is-32x32">
-                        <img src="https://source.unsplash.com/random/64x64/?sig=300">
+                        <img src="https://source.unsplash.com/random/64x64/?sig=300" alt="Avatar photo">
                       </p>
                     </div>
                     <div class="media-content">
@@ -835,7 +835,7 @@
                   <div class="media">
                     <div class="media-left">
                       <p class="image is-32x32">
-                        <img src="https://source.unsplash.com/random/64x64/?sig=301">
+                        <img src="https://source.unsplash.com/random/64x64/?sig=301" alt="Avatar photo">
                       </p>
                     </div>
                     <div class="media-content">
@@ -857,7 +857,7 @@
                   <div class="media">
                     <div class="media-left">
                       <p class="image is-32x32">
-                        <img src="https://source.unsplash.com/random/64x64/?sig=302">
+                        <img src="https://source.unsplash.com/random/64x64/?sig=302" alt="Avatar photo">
                       </p>
                     </div>
                     <div class="media-content">
@@ -879,7 +879,7 @@
                   <div class="media">
                     <div class="media-left">
                       <p class="image is-32x32">
-                        <img src="https://source.unsplash.com/random/64x64/?sig=303">
+                        <img src="https://source.unsplash.com/random/64x64/?sig=303" alt="Avatar photo">
                       </p>
                     </div>
                     <div class="media-content">
@@ -901,7 +901,7 @@
                   <div class="media">
                     <div class="media-left">
                       <p class="image is-32x32">
-                        <img src="https://source.unsplash.com/random/64x64/?sig=304">
+                        <img src="https://source.unsplash.com/random/64x64/?sig=304" alt="Avatar photo">
                       </p>
                     </div>
                     <div class="media-content">
@@ -923,7 +923,7 @@
                   <div class="media">
                     <div class="media-left">
                       <p class="image is-32x32">
-                        <img src="https://source.unsplash.com/random/64x64/?sig=305">
+                        <img src="https://source.unsplash.com/random/64x64/?sig=305" alt="Avatar photo">
                       </p>
                     </div>
                     <div class="media-content">
@@ -946,13 +946,13 @@
       </div>
 
       <div class="section has-background-light">
-        <div class="container">
+        <form role="form" class="container" aria-labelledby="skip-to-h2-8">
           <div class="section-heading has-text-centered">
             <h2 id="skip-to-h2-8" class="title is-2">Contact us</h2>
             <div class="subtitle is-5">Don't hesitate, ask anything</div>
           </div>
 
-          <form role="form" class="column is-half is-offset-one-quarter box">
+          <div class="column is-half is-offset-one-quarter box">
             <div class="field">
               <label for="contact-name" class="label">Name</label>
               <div class="control">
@@ -1037,8 +1037,8 @@
                 <button type="reset" class="button is-text">Cancel</button>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
 
   </main>
@@ -1152,7 +1152,7 @@
     </div>
   </div> -->
 
-  <footer class="footer" id="footer">
+  <footer id="footer">
     <div class="container">
       <div class="columns">
         <div class="column is-3 is-offset-2">
