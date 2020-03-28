@@ -4,6 +4,15 @@
     var toggleBurger = function () {
         burger.classList.toggle("is-active");
         menu.classList.toggle("is-active");
+
+        if (burger.getAttribute('aria-expanded') === "false") {
+            burger.setAttribute('aria-expanded', "true");
+            burger.setAttribute('aria-label', "Hide menu");
+        } else {
+            burger.setAttribute('aria-expanded', "false");
+            burger.setAttribute('aria-label', "Show menu");
+        }
+
     };
     burger.addEventListener("click", function () {
         toggleBurger()

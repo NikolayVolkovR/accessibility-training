@@ -83,11 +83,19 @@
             <a class="navbar-item logo-link" tabindex="0">
               <img src="https://www.epam.com/content/dam/epam/global/logo_white-blue.svg" alt="EPAM home page">
             </a>
-            <span class="navbar-burger burger" data-target="navbarMenu" tabindex="0">
+            <button
+                    class="navbar-burger burger"
+                    data-target="navbarMenu"
+                    tabindex="0"
+                    aria-haspopup="true"
+                    aria-controls="navbarMenu"
+                    aria-expanded="false"
+                    aria-label="Show menu"
+            >
               <span></span>
               <span></span>
               <span></span>
-            </span>
+            </button>
           </div>
 
           <nav id="navbarMenu" class="navbar-menu" aria-label="Main menu">
