@@ -23,17 +23,15 @@ document.querySelectorAll("#nav li").forEach(function (navEl) {
 });
 
 
-
-
 // Listen to tab focus | blur
 function listenTabFocus() {
     const navEls = document.querySelectorAll("#nav li button");
     navEls.forEach(function (navEl) {
         navEl.addEventListener('focus', function () {
-            navEl.addEventListener('keydown', tabKeyDown);
+            //navEl.addEventListener('keydown', tabKeyDown);
         });
         navEl.addEventListener('blur', function () {
-            navEl.removeEventListener('keydown', tabKeyDown);
+            //navEl.removeEventListener('keydown', tabKeyDown);
         });
     });
 }
@@ -51,6 +49,7 @@ function getActiveTabIndex() {
 }
 
 function setNextTab() {
+    console.log('setNextTab')
     const navEls = document.querySelectorAll("#nav li");
     const activeElIndex = getActiveTabIndex();
     const nextTabIndex = activeElIndex + 1 < navEls.length ? activeElIndex + 1 : 0;
@@ -77,6 +76,7 @@ function setNextTab() {
 }
 
 function setPrevTab() {
+    console.log('setPrevTab')
     const navEls = document.querySelectorAll("#nav li");
     const activeElIndex = getActiveTabIndex();
     const nextTabIndex = activeElIndex - 1 >= 0 ? activeElIndex - 1 : navEls.length - 1;
@@ -254,3 +254,42 @@ function skipTo() {
 }
 
 skipTo();
+
+// =======================
+const myModal = () => {
+    let activeModal = undefined;
+
+    const listenToModalClose = function(event) {
+        const target = event.target;
+
+        if (!target.classList.contains('modal-background') && !target.classList.contains('modal-close')) {
+            return undefined;
+        }
+        activeModal.style.display = 'none';
+        document.documentElement.style.overflowY  = 'auto';
+        document.body.removeEventListener('click', listenToModalClose);
+    }
+
+
+    const modalButtonHandleClick = function(event) {
+        const target = event.target;
+        const modalId = target.dataset.target;
+        activeModal = document.getElementById(modalId);
+
+        activeModal.style.display = 'flex';
+        document.documentElement.style.overflowY  = 'hidden';
+
+        window.setTimeout(() => {
+            document.body.addEventListener('click', listenToModalClose);
+        }, 0);
+
+    };
+
+
+    const elems = document.querySelectorAll('.modal-button');
+    elems.forEach((elem) => {
+        elem.addEventListener('click', modalButtonHandleClick);
+    })
+};
+
+myModal();

@@ -395,7 +395,7 @@
                     <div class="content">
                       <div>Click on image above</div>
                       <p lang="la">Purus semper eget duis at tellus at urna condimentum mattis. Non blandit massa enim nec. Integer enim neque volutpat ac tincidunt vitae semper quis. Accumsan tortor posuere ac ut consequat semper viverra nam.</p>
-                      <span class="button is-link modal-button" data-target="modal-image1" tabindex="0">Image modal</span>
+                      <button class="button is-link modal-button" data-target="modal-image1" tabindex="0">Image modal</button>
                       <span class="visually-hidden">Clickable. Will open in new popup.</span>
                     </div>
                   </div>
@@ -413,7 +413,7 @@
                       <div lang="la">Tempor orci dapibus ultrices in.</div>
                       <p lang="la">Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing elit pellentesque. Sed arcu non odio euismod lacinia at quis risus. Faucibus turpis in eu mi bibendum neque egestas cmonsu songue. Phasellus vestibulum lorem
                         sed risus.</p>
-                      <span class="button is-link modal-button" data-target="modal-card" tabindex="0">Modal Card</span>
+                      <button class="button is-link modal-button" data-target="modal-card" tabindex="0">Modal Card</button>
                       <span class="visually-hidden">Clickable. Will open in new popup.</span>
                     </div>
                   </div>
@@ -430,7 +430,7 @@
                     <div class="content">
                       <div>Click anywhere on card</div>
                       <p lang="la">Imperdiet dui accumsan sit amet nulla facilisi morbi. Fusce ut placerat orci nulla pellentesque dignissim enim. Libero id faucibus nisl tincidunt eget nullam. Commodo viverra maecenas accumsan lacus vel facilisis.</p>
-                      <span class="button is-link modal-button" data-target="modal-image2" tabindex="0">Image modal</span>
+                      <button class="button is-link modal-button" data-target="modal-image2" tabindex="0">Image modal</button>
                       <span class="visually-hidden">Clickable. Will open in new popup.</span>
                     </div>
                   </div>
@@ -1223,20 +1223,20 @@
     </div>
   </footer>
 
-  <div id="modal-card" class="modal modal-fx-3dSlit">
+  <div id="modal-card" class="modal modal-fx-3dSlit" role="dialog" aria-modal="true" aria-label="Modal card for Jane Doe" aria-describedby="modal-card-content">
     <div class="modal-background"></div>
     <div class="modal-content is-tiny">
       <div class="card">
         <div class="card-image">
           <div class="image is-4by3">
-            <img src="https://source.unsplash.com/random/?sig=2">
+            <img src="https://source.unsplash.com/random/?sig=2" alt="Random photo">
           </div>
         </div>
         <div class="card-content">
           <div class="media">
             <div class="media-left">
               <div class="image is-48x48">
-                <img src="http://www.radfaces.com/images/avatars/linda-barret.jpg">
+                <img src="http://www.radfaces.com/images/avatars/linda-barret.jpg" alt="Linda Barret avatar">
               </div>
             </div>
             <div class="media-content">
@@ -1244,7 +1244,7 @@
               <div class="subtitle is-6">@jane_doe</div>
             </div>
           </div>
-          <div class="content">
+          <div class="content" id="modal-card-content">
             Laum Ipsum junkah potatoes bookin' it. Moosetown rig up I'm tellin' you way up north bookin' it can't get theyah from heeyah native bean suppah whawf Powrtland Museum of Aht, back woods hawsun around the pit mummah Yessah, mummah muckle riyht on'ta her
             Bean's dinnahbucket bub geez bud sumpin' fierce ayuhpawt Bangah naw, Powrtland Museum of Aht down cellah sumpin' fierce hoppa bub If you can't stand the wintah you don't deserve the summah slower than molasses going uphill in January.
             Sgn'wahl shoggor hrii uaaah R'lyeh uh'e k'yarnak Hastur hupadgh li'hee, hai f'nilgh'ri nilgh'ri n'ghftor ngftaghu vulgtlagln h'hrii throd Nyarlathotep lloig, naflsll'ha nnnsll'ha athg y-ebunma goka chtenff ehyeog cehye. Zhro y'hah
@@ -1261,24 +1261,24 @@
     <button type="button" class="modal-close is-large"></button>
   </div>
 
-  <div id="modal-image1" class="modal modal-fx-3dSlit">
+  <div id="modal-image1" class="modal modal-fx-3dSlit" role="dialog" aria-modal="true" aria-label="Random photo modal" tabindex="0">
     <div class="modal-background"></div>
     <div class="modal-content is-huge is-image">
-      <img src="https://source.unsplash.com/random/?sig=1">
+      <img src="https://source.unsplash.com/random/?sig=1" alt="Random photo">
     </div>
     <button type="button" class="modal-close is-large"></button>
   </div>
 
-  <div id="modal-image2" class="modal modal-fx-superScaled">
+  <div id="modal-image2" class="modal modal-fx-superScaled" role="dialog" aria-modal="true" aria-label="Random photo modal">
     <div class="modal-background"></div>
     <div class="modal-content  is-image">
-      <img src="https://source.unsplash.com/random/?sig=3">
+      <img src="https://source.unsplash.com/random/?sig=3" alt="Random photo">
     </div>
-    <button type="button" class="modal-close is-large"></button>
+    <button type="button" class="modal-close is-large" tabindex="0"></button>
   </div>
 
-  <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+  <!--<script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>-->
   <script async src="js/custom.js"></script>
-  <script async src="js/main.js"></script>
+  <!--<script async src="js/main.js"></script>-->
 </body>
 </html>
