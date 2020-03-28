@@ -259,15 +259,28 @@ skipTo();
 const myModal = () => {
     let activeModal = undefined;
 
+    const handleKeydown = function (event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+
+        document.removeEventListener('keypress', handleKeydown)
+    }
+
+    const closeModal = function () {
+        activeModal.style.display = 'none';
+        document.documentElement.style.overflowY  = 'auto';
+        document.body.removeEventListener('click', listenToModalClose);
+    }
+
     const listenToModalClose = function(event) {
         const target = event.target;
 
         if (!target.classList.contains('modal-background') && !target.classList.contains('modal-close')) {
             return undefined;
         }
-        activeModal.style.display = 'none';
-        document.documentElement.style.overflowY  = 'auto';
-        document.body.removeEventListener('click', listenToModalClose);
+
+        closeModal();
     }
 
 
@@ -290,6 +303,8 @@ const myModal = () => {
     elems.forEach((elem) => {
         elem.addEventListener('click', modalButtonHandleClick);
     })
+
+    document.addEventListener('keydown', handleKeydown);
 };
 
 myModal();
