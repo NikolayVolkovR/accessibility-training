@@ -264,7 +264,7 @@ function skipTo() {
 
 skipTo();
 
-// =======================
+// Modal ===========================
 const myModal = () => {
     let activeModal = undefined;
 
@@ -317,3 +317,33 @@ const myModal = () => {
 };
 
 myModal();
+
+// LiveTimer ======================
+const LiveTimer = () => {
+    const setTime = () => {
+        const elem = document.getElementById('live-timer-value');
+        const date = new Date();
+        const value = `It is ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} now.`
+        elem.innerText = value;
+    }
+
+    const handleButtonClick = () => {
+        const elem = document.getElementById('live-timer-value');
+        const button = document.getElementById('live-timer').querySelector('button');
+        if (elem.getAttribute('aria-live') !== 'off') {
+            elem.setAttribute('aria-live', 'off');
+            button.innerText = 'Start informing';
+        } else {
+            elem.setAttribute('aria-live', 'polite');
+            button.innerText = 'Stop informing';
+        }
+    }
+
+    setTime();
+    const timerId = window.setInterval(setTime, 60000);
+
+    const button = document.getElementById('live-timer').querySelector('button');
+    button.addEventListener('click', handleButtonClick)
+}
+
+LiveTimer();
