@@ -226,8 +226,8 @@
               &lt;/html&gt;
               </pre>
           <p lang="la">Maecenas eleifend sollicitudin dui, faucibus sollicitudin augue cursus non. Ut finibus eleifend arcu ut vehicula. Mauris eu est maximus est porta condimentum in eu justo. Nulla id iaculis sapien.</p>
-          <table>
-            <caption>Here should be a caption</caption>
+          <table aria-labelledby="table-caption">
+            <caption id="table-caption">Here should be a table caption</caption>
             <tr>
               <th></th>
               <th id="header-one" scope="col">Header</th>
@@ -262,11 +262,11 @@
           <p lang="la">Phasellus porttitor enim id metus volutpat ultricies. Ut nisi nunc, blandit sed dapibus at, vestibulum in felis. Etiam iaculis lorem ac nibh bibendum rhoncus. Nam interdum efficitur ligula sit amet ullamcorper. Etiam tristique, leo vitae porta faucibus, mi lacus laoreet metus, at cursus leo est vel tellus. Sed ac posuere est. Nunc ultricies nunc neque, vitae ultricies ex sodales quis. Aliquam eu nibh in libero accumsan pulvinar. Nullam nec nisl placerat, pretium metus vel, euismod ipsum. Proin tempor cursus nisl vel condimentum. Nam pharetra varius metus non pellentesque.</p>
           <h5 class="is-5 title">Fifth level</h5>
           <p lang="la">Aliquam sagittis rhoncus vulputate. Cras non luctus sem, sed tincidunt ligula. Vestibulum at nunc elit. Praesent aliquet ligula mi, in luctus elit volutpat porta. Phasellus molestie diam vel nisi sodales, a eleifend augue laoreet. Sed nec eleifend justo. Nam et sollicitudin odio.</p>
-          <figure>
+          <figure aria-labelledby="figure-caption">
             <img src="./img/photo-1572958731731-2b7fdb0a9818.jpg" alt="Beautiful placeholder 1">
             <img src="./img/photo-1574281852611-b2f04c86a520.jpg" alt="Beautiful placeholder 2">
             <img src="./img/photo-1575023615386-1554d895d09d.jpg" alt="Beautiful placeholder 3">
-            <figcaption>
+            <figcaption id="figure-caption">
               Figure 1: Some beautiful placeholders
             </figcaption>
           </figure>
@@ -1258,7 +1258,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="modal-close is-large"></button>
+    <button type="button" class="modal-close is-large" aria-label="Close modal window"></button>
   </div>
 
   <div id="modal-image1" class="modal modal-fx-3dSlit" role="dialog" aria-modal="true" aria-label="Random photo modal" tabindex="0">
@@ -1266,7 +1266,7 @@
     <div class="modal-content is-huge is-image">
       <img src="https://source.unsplash.com/random/?sig=1" alt="Random photo">
     </div>
-    <button type="button" class="modal-close is-large"></button>
+    <button type="button" class="modal-close is-large" aria-label="Close modal window"></button>
   </div>
 
   <div id="modal-image2" class="modal modal-fx-superScaled" role="dialog" aria-modal="true" aria-label="Random photo modal">
@@ -1274,7 +1274,7 @@
     <div class="modal-content  is-image">
       <img src="https://source.unsplash.com/random/?sig=3" alt="Random photo">
     </div>
-    <button type="button" class="modal-close is-large" tabindex="0"></button>
+    <button type="button" class="modal-close is-large" aria-label="Close modal window"></button>
   </div>
 
   <!--<script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>-->
