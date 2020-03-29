@@ -170,6 +170,10 @@ a:hover {
   background-color: #176ea7;
 }
 
+footer {
+  margin-top: 30px;
+}
+
 .footer a {
   color: #2d68c7;
 }
@@ -330,6 +334,10 @@ a:hover {
   border-right: .1em solid currentColor;
   height: .8em;
   content: '';
+}
+
+.bold {
+  font-weight: bold;
 }
 
 
