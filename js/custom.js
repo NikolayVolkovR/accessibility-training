@@ -57,17 +57,14 @@ function getActiveTabIndex() {
     }
 }
 
-function setNextTab() {
-    console.log('setNextTab')
+function setActiveTap(activeTabIndex) {
     const navEls = document.querySelectorAll("#nav li");
-    const activeElIndex = getActiveTabIndex();
-    const nextTabIndex = activeElIndex + 1 < navEls.length ? activeElIndex + 1 : 0;
 
     for (let i = 0; i < navEls.length; i++) {
         const el = navEls[i]
         const button = el.querySelector('button');
 
-        if (i === nextTabIndex) {
+        if (i === activeTabIndex) {
             el.classList.add('is-active');
             button.focus();
             button.setAttribute('tabindex', '0');
@@ -80,44 +77,57 @@ function setNextTab() {
             }
         }
     }
+}
 
+function setNextTab() {
+    const navEls = document.querySelectorAll("#nav li");
+    const activeTabIndex = getActiveTabIndex();
+    const nextTabIndex = activeTabIndex + 1 < navEls.length ? activeTabIndex + 1 : 0;
+
+    setActiveTap(nextTabIndex);
     setActiveTabPane(navEls[nextTabIndex].dataset.target);
 }
 
 function setPrevTab() {
-    console.log('setPrevTab')
     const navEls = document.querySelectorAll("#nav li");
-    const activeElIndex = getActiveTabIndex();
-    const nextTabIndex = activeElIndex - 1 >= 0 ? activeElIndex - 1 : navEls.length - 1;
+    const activeTabIndex = getActiveTabIndex();
+    const nextTabIndex = activeTabIndex - 1 >= 0 ? activeTabIndex - 1 : navEls.length - 1;
 
-    for (let i = 0; i < navEls.length; i++) {
-        const el = navEls[i]
-        const button = el.querySelector('button');
-
-        if (i === nextTabIndex) {
-            el.classList.add('is-active');
-            button.focus();
-            button.setAttribute('tabindex', '0');
-            button.setAttribute('aria-selected', 'true');
-        } else {
-            if (el.classList.contains('is-active')) {
-                el.classList.remove('is-active');
-                button.setAttribute('tabindex', '-1');
-                button.setAttribute('aria-selected', 'false');
-            }
-        }
-    }
-
+    setActiveTap(nextTabIndex)
     setActiveTabPane(navEls[nextTabIndex].dataset.target);
+}
+
+function setLastTab(event) {
+    const navEls = document.querySelectorAll("#nav li");
+    const activeTabIndex = navEls.length - 1;
+
+    event.preventDefault();
+    setActiveTap(activeTabIndex);
+    setActiveTabPane(navEls[activeTabIndex].dataset.target);
+}
+
+function setFirstTab(event) {
+    const navEls = document.querySelectorAll("#nav li");
+    const activeTabIndex = 0;
+
+    event.preventDefault();
+    setActiveTap(activeTabIndex);
+    setActiveTabPane(navEls[activeTabIndex].dataset.target);
 }
 
 function tabKeyDown(event) {
     switch (event.keyCode) {
-        case 39:
-            setNextTab()
+        case 35:
+            setLastTab(event)
+            break;
+        case 36:
+            setFirstTab(event)
             break;
         case 37:
             setPrevTab()
+            break;
+        case 39:
+            setNextTab()
             break;
         default:
             break;
