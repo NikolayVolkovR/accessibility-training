@@ -37,10 +37,10 @@ function listenTabFocus() {
     const navEls = document.querySelectorAll("#nav li button");
     navEls.forEach(function (navEl) {
         navEl.addEventListener('focus', function () {
-            //navEl.addEventListener('keydown', tabKeyDown);
+            navEl.addEventListener('keydown', tabKeyDown);
         });
         navEl.addEventListener('blur', function () {
-            //navEl.removeEventListener('keydown', tabKeyDown);
+            navEl.removeEventListener('keydown', tabKeyDown);
         });
     });
 }
@@ -155,8 +155,6 @@ function toggleTab(selectedNav, targetId) {
     });
     setActiveTabPane(targetId)
 }
-
-
 
 
 
