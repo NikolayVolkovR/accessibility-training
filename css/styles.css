@@ -161,6 +161,41 @@ li {
 
 
 
+.has-sub-menu:after {
+  content: ">";
+  font-weight: bold;
+  margin-left: 10px;
+  display: inline-block;
+  transform: rotate(90deg);
+}
+.navbarSubMenu {
+  position: absolute;
+  top: 50px;
+  left: 12px;
+  background: #ffffff;
+  padding: 10px 0;
+  border-radius: 0 6px 6px 6px;
+  min-width: 180px;
+}
+
+.navbarSubMenu li {
+
+}
+.navbarSubMenu li:hover {
+
+}
+.navbarSubMenu a:hover, .navbarSubMenu a:focus {
+  background-color: #777777;
+  color: #ffffff;
+}
+
+.navbarSubMenu a {
+  display: block;
+  padding: 5px 20px;
+  color: #333333;
+}
+
+
 
 a:hover {
   text-decoration: underline;

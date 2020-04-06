@@ -355,3 +355,12 @@ const LiveTimer = () => {
 }
 
 LiveTimer();
+
+//Navigation Menu
+const navigationMenu = () => {
+    function listenMenuFocus() {
+
+    }
+    listenMenuFocus();
+}
+navigationMenu();
