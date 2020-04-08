@@ -169,6 +169,7 @@ li {
   transform: rotate(90deg);
 }
 .navbarSubMenu {
+  display: none;
   position: absolute;
   top: 50px;
   left: 12px;
@@ -176,6 +177,10 @@ li {
   padding: 10px 0;
   border-radius: 0 6px 6px 6px;
   min-width: 180px;
+}
+
+.navbarSubMenu.is-active {
+  display: block;
 }
 
 .navbarSubMenu li {

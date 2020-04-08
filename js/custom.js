@@ -285,9 +285,11 @@ const myModal = () => {
     }
 
     const closeModal = function () {
-        activeModal.style.display = 'none';
-        document.documentElement.style.overflowY  = 'auto';
-        document.body.removeEventListener('click', listenToModalClose);
+        if (activeModal) {
+            activeModal.style.display = 'none';
+            document.documentElement.style.overflowY  = 'auto';
+            document.body.removeEventListener('click', listenToModalClose);
+        }
     }
 
     const listenToModalClose = function(event) {
@@ -358,9 +360,221 @@ LiveTimer();
 
 //Navigation Menu
 const navigationMenu = () => {
-    function listenMenuFocus() {
+    let activeNavmenuItemIndex = 0;
+    let isSubmenuOpend = false;
+    let activeSubMenuItemIndex = 0;
 
+    document.querySelectorAll('.navbar-menu-item').forEach((link) => {
+        link.addEventListener('focus', handleNavmenuItemFocus);
+        link.addEventListener('blur', handleNavmenuItemBlur);
+        link.addEventListener('click', handleNavmenuItemClick);
+    });
+
+    function handleNavmenuItemFocus(event) {
+        window.addEventListener('keydown', handleNavmenuItemKeyDown);
     }
-    listenMenuFocus();
+
+    function handleNavmenuItemBlur() {
+        if (!document.activeElement.classList.contains('navbar-menu-item')) {
+            window.removeEventListener('keydown', handleNavmenuItemKeyDown);
+        }
+    }
+
+    function handleWindowClickNavmenu(event) {
+        const { target } = event;
+
+        if (
+            !(target.classList.contains('navbarSubMenu') ||
+            target.parentNode.classList.contains('navbarSubMenu') ||
+            target.parentNode.parentNode.classList.contains('navbarSubMenu'))
+        ) {
+            window.removeEventListener('click', handleWindowClickNavmenu);
+            handleCloseSubmenu();
+        }
+    }
+
+    function handleNavmenuItemClick(event) {
+        const { currentTarget: target } = event;
+
+        document.querySelectorAll('.navbar-menu-item').forEach((link, index) => {
+            if (link === target) {
+                activeNavmenuItemIndex = index;
+            }
+        })
+
+        if (isSubmenuOpend) {
+            handleCloseSubmenu();
+        } else {
+            window.addEventListener('keydown', handleSabmenuKeyDown);
+            handleOpenSubmenu();
+        }
+    }
+
+    function handleSabmenuKeyDown(event) {
+        const {key, target} = event
+
+        switch (key) {
+            case ' ':
+                const clickEvent = new MouseEvent('click', {bubbles: true})
+                target.dispatchEvent(clickEvent);
+                event.preventDefault();
+                break;
+            case 'Tab':
+                handleCloseSubmenu(true);
+                break;
+            case 'Escape':
+                handleCloseSubmenu();
+                event.preventDefault();
+                break;
+            case 'ArrowRight':
+                handleCloseSubmenu();
+                navmenuRight();
+                event.preventDefault();
+                break;
+            case 'ArrowLeft':
+                handleCloseSubmenu();
+                navmenuLeft();
+                event.preventDefault();
+                break;
+            case 'ArrowUp':
+                navSubMenuUp();
+                event.preventDefault();
+                break;
+            case 'ArrowDown':
+                navSubMenuDown();
+                event.preventDefault();
+                break;
+            default:
+                break;
+        }
+    }
+
+    function setSubmenuActiveItem() {
+        subItems = getSubmenuItems();
+        subItems.forEach((item, index) => {
+           if (index === activeSubMenuItemIndex) {
+               item.setAttribute('tabindex', '0');
+               item.focus();
+           } else {
+               item.setAttribute('tabindex', '-1');
+            }
+        });
+    }
+
+    function getSubmenuItems() {
+        const acitveItem = document.querySelectorAll('.navbar-menu-item')[activeNavmenuItemIndex];
+        const subMenu = acitveItem.nextElementSibling;
+        return subMenu.querySelectorAll('a');
+    }
+
+    function navSubMenuUp() {
+        const subItems = getSubmenuItems()
+
+        activeSubMenuItemIndex = activeSubMenuItemIndex > 0 ? activeSubMenuItemIndex - 1 : subItems.length - 1;
+        setSubmenuActiveItem();
+    }
+
+    function navSubMenuDown() {
+        const subItems = getSubmenuItems()
+
+        activeSubMenuItemIndex = activeSubMenuItemIndex + 1 < subItems.length ? activeSubMenuItemIndex + 1 : 0;
+        setSubmenuActiveItem();
+    }
+
+    function handleNavmenuItemKeyDown(event) {
+        const {key} = event;
+
+        switch (key) {
+            case ' ':
+            case 'Enter':
+            case 'ArrowDown':
+                event.preventDefault();
+                handleOpenSubmenu();
+                event.preventDefault();
+                break;
+            case 'ArrowRight':
+                navmenuRight();
+                break;
+            case 'ArrowLeft':
+                navmenuLeft();
+                break;
+            case 'ArrowUp':
+                event.preventDefault();
+                break;
+            case 'ArrowDown':
+                event.preventDefault();
+                break;
+            default:
+                break;
+        }
+    }
+
+    function navmenuRight() {
+        const links = document.querySelectorAll('.navbar-menu-item')
+        activeNavmenuItemIndex = activeNavmenuItemIndex + 1 < links.length ? activeNavmenuItemIndex + 1 : 0;
+        setActiveNavmenuItem();
+    }
+
+    function navmenuLeft() {
+        const links = document.querySelectorAll('.navbar-menu-item')
+        activeNavmenuItemIndex = activeNavmenuItemIndex - 1 >= 0 ? activeNavmenuItemIndex - 1 : links.length - 1;
+        setActiveNavmenuItem();
+    }
+
+    function handleOpenSubmenu() {
+        const element = document.activeElement;
+        const subMenu = element.nextElementSibling;
+
+        if (subMenu && subMenu.classList.contains('navbarSubMenu')) {
+            subMenu.classList.add('is-active');
+            isSubmenuOpend = true;
+
+            const firstSubmenuElement = subMenu.querySelector('a')
+            firstSubmenuElement.setAttribute('tabindex', '0');
+            firstSubmenuElement.focus();
+
+            subMenu.setAttribute('aria-expanded', 'true');
+
+            window.addEventListener('keydown', handleSabmenuKeyDown);
+            setTimeout(() => {
+                window.addEventListener('click', handleWindowClickNavmenu);
+            }, 0);
+        }
+    }
+
+    function handleCloseSubmenu(isTabKey) {
+        const element = document.querySelectorAll('.navbar-menu-item')[activeNavmenuItemIndex];
+        const subMenu = element.nextElementSibling;
+        if (subMenu && subMenu.classList.contains('navbarSubMenu')) {
+
+            subMenu.classList.remove('is-active');
+            isSubmenuOpend = false;
+
+            const submenuElements = subMenu.querySelectorAll('a');
+            submenuElements.forEach((element) => {
+                element.setAttribute('tabindex', '-1');
+            })
+
+            subMenu.setAttribute('aria-expanded', 'false');
+
+            activeSubMenuItemIndex = 0;
+            if (!isTabKey) {
+                element.focus();
+            }
+        }
+
+        window.removeEventListener('keydown', handleSabmenuKeyDown);
+    }
+
+    function setActiveNavmenuItem() {
+        document.querySelectorAll('.navbar-menu-item').forEach((link, index) => {
+            if (index === activeNavmenuItemIndex) {
+                link.setAttribute("tabindex", "0");
+                link.focus();
+            } else {
+                link.setAttribute("tabindex", "-1");
+            }
+        });
+    }
 }
 navigationMenu();
